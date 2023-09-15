@@ -1,35 +1,40 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.unoveo.pages.*" %>
 <!DOCTYPE html>
 <html lang="en">
 <table border="1">
-		<thead>
+
 			<tr>
 				<th>#</th>
-				<th>User Name</th>
-				<th>Password</th>
-				<th>Email</th>
-				<th>Display Name</th>
+				<th>fname</th>
+				<th>lname</th>
+				<th>city</th>
+				<th>age</th>
 			</tr>
-		</thead>
-		<tbody>
+
 			<%
-				int i = 1;
-				List<User> list = (List) request.getAttribute("list");
+
+				ArrayList<Register> list = (ArrayList)request.getAttribute("Register");
+				int i=1;
+
 			%>
 
 			<%
-				for (User u : list) {
+			    if(list!=null){
+				for ( Register register :list) {
 			%>
 			<tr>
 				<td><%=i++%></td>
-				<td><%=u.getUserName()%></td>
-				<td><%=u.getPassword()%></td>
-				<td><%=u.getEmail()%></td>
-				<td><%=u.getDisplayName()%></td>
+				<td><%=register.getfname()%></td>
+				<td><%=register.getlname()%></td>
+				<td><%=register.getcity()%></td>
+				<td><%=register.getage()%></td>
 			</tr>
 			<%
 				}
+				}
 			%>
-		</tbody>
+
 	</table>
 
 

@@ -25,6 +25,8 @@ public class RegisterServlet extends HttpServlet {
     public void doPost (HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         System.out.println("in do post");
         PrintWriter out=res.getWriter();
+        //getParameter method is used to retrieve data from client side...
+        //getParameter returns the value of a request parameter as a String...
         String fname= req.getParameter("fname");
         String lname=req.getParameter("lname");
         String city=req.getParameter("city");
@@ -48,6 +50,7 @@ public class RegisterServlet extends HttpServlet {
 
         try {
             PreparedStatement st=con.prepareStatement("insert into register values (?, ?, ?, ?);");
+            // setString method in java sets the designated parameter to the given Java String value.
             st.setString(1, fname);
             st.setString(2, lname);
             st.setString(3, city);
